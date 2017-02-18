@@ -23,6 +23,10 @@
         </asp:ScriptManager>
         <div class="container" >
             <div class="row">
+                <div class="col-md-12">
+                    <h3>Programa</h3>
+                    <hr />
+                </div>
                 <div class="col-md-6" >
                     Nombre: <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="txtNombre" ID="reqValNombre" runat="server" ErrorMessage="Requerido" ForeColor="red"></asp:RequiredFieldValidator>
@@ -66,9 +70,9 @@
                 
             </div>
 
-
-        </div>
-        <div>
+            <hr />
+            <div class="row" >
+                   <div class="col-md-6">
             <asp:FileUpload ID="flUmarco" runat="server" />
             <asp:RequiredFieldValidator ID="reqValFluMarco" ControlToValidate="flUmarco" ForeColor="Red" runat="server" ErrorMessage="Requerido"></asp:RequiredFieldValidator>
             <asp:FileUpload ID="fluConvenio" runat="server" />
@@ -76,12 +80,22 @@
         <div >
             <asp:Button CssClass="col-lg-offset-8" ID="btnGuardar"  OnClick="btnGuardar_Click"  runat="server" Text="Guardar" />
         </div>
+            </div>
+
+        </div>
+     
         
         
     
     </div>
         <script>
             function pageLoad() {
+
+                
+
+                
+
+                
 
                 var service = {
                     holaMundo: MSAjaxClientWebForms.WS.ProgramaWs.HelloWorld,
@@ -105,7 +119,10 @@
                     
                 }
                 ProgramaApp.inicializar(paginaControls,service);
+
+
                 
+               
             }
             
         </script>
