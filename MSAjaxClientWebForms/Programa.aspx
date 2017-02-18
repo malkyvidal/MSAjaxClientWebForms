@@ -25,12 +25,12 @@
             <div class="row">
                 <div class="col-md-6" >
                     Nombre: <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ControlToValidate="txtNombre" ID="reqValNombre" runat="server" ErrorMessage="*" ForeColor="red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ControlToValidate="txtNombre" ID="reqValNombre" runat="server" ErrorMessage="Requerido" ForeColor="red"></asp:RequiredFieldValidator>
                     
                 </div>
                 <div class="col-md-6" >
                     Siglas: <asp:TextBox ID="txtSiglas" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ControlToValidate="txtSiglas" ID="reqValSigla" runat="server" ErrorMessage="*" ForeColor="red" ></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ControlToValidate="txtSiglas" ID="reqValSigla" runat="server" ErrorMessage="REquerido" ForeColor="red" ></asp:RequiredFieldValidator>
                 </div>
 
             </div>
@@ -55,16 +55,29 @@
                                 Seleccione
                             </option>
                         </select>
+
+                        <input type="button" disabled="disabled"  value="buscar" name="btnBuscar" id="btnBuscar"/>
                         
                     </div>
+                    <div id="grid">
+          
+        </div>
                 </fieldset>
                 
             </div>
 
 
         </div>
-        <asp:Button ID="btnGuardar"  OnClick="btnGuardar_Click"  runat="server" Text="Guardar" />
-
+        <div>
+            <asp:FileUpload ID="flUmarco" runat="server" />
+            <asp:RequiredFieldValidator ID="reqValFluMarco" ControlToValidate="flUmarco" ForeColor="Red" runat="server" ErrorMessage="Requerido"></asp:RequiredFieldValidator>
+            <asp:FileUpload ID="fluConvenio" runat="server" />
+        </div>
+        <div >
+            <asp:Button CssClass="col-lg-offset-8" ID="btnGuardar"  OnClick="btnGuardar_Click"  runat="server" Text="Guardar" />
+        </div>
+        
+        
     
     </div>
         <script>
@@ -74,7 +87,9 @@
                     holaMundo: MSAjaxClientWebForms.WS.ProgramaWs.HelloWorld,
                     institucionPorPais: MSAjaxClientWebForms.WS.ProgramaWs.insttitucionePorPais,
                     institucionPorOrganismo: MSAjaxClientWebForms.WS.ProgramaWs.institucionesPorOrganismo,
-                    validarNombre: MSAjaxClientWebForms.WS.ProgramaWs.validarNombre
+                    validarNombre: MSAjaxClientWebForms.WS.ProgramaWs.validarNombre,
+                    conveniosPorPais: MSAjaxClientWebForms.WS.ProgramaWs.conveniosPorPais,
+                    conveniosPorOrganismo: MSAjaxClientWebForms.WS.ProgramaWs.conveniosPorOrganismo
                     
                 }
                 var paginaControls = {
@@ -84,7 +99,9 @@
                     comboOrganismoW: "<%=orgsCombo.ClientID%>",
                     comboInstitucion: "instCombo",
                     btnGuardar: '<%= btnGuardar.ClientID%>',
-                    txtNombre:'<%= txtNombre.ClientID%>'
+                    txtNombre: '<%= txtNombre.ClientID%>',
+                    btnBuscar: "btnBuscar",
+                    divGrid:"grid"
                     
                 }
                 ProgramaApp.inicializar(paginaControls,service);

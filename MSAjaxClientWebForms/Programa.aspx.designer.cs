@@ -94,6 +94,33 @@ namespace MSAjaxClientWebForms {
         protected global::System.Web.UI.WebControls.DropDownList orgsCombo;
         
         /// <summary>
+        /// Control flUmarco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flUmarco;
+        
+        /// <summary>
+        /// Control reqValFluMarco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqValFluMarco;
+        
+        /// <summary>
+        /// Control fluConvenio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fluConvenio;
+        
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>

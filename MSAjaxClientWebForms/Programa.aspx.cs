@@ -52,7 +52,9 @@ namespace MSAjaxClientWebForms
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Response.Write("submiteado");
+            var con = Request.Form["rbtnConvenio"];
+
+            Response.Write(con);
         }
     }
 }

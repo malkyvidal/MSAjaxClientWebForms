@@ -42,6 +42,12 @@ var Helper = (function () {
             var w = Object.create(widget)
             w.setId(id);
             return w;
+        },
+        limpiarHtml: function (elemento) {
+            $get(elemento.getId()).innerHTML = "";
+        },
+        setHtml: function (elemento, stringBulder) {
+            $get(elemento.getId()).innerHTML = stringBulder.toString();
         }
         
     }

@@ -18,6 +18,12 @@ namespace MSAjaxClientWebForms.WS
     public class ProgramaWs : System.Web.Services.WebService
     {
 
+        public enum tipoAsiciacion{
+            pais,
+            organismo
+        }
+
+
         [WebMethod]
         public string HelloWorld()
         {
@@ -42,6 +48,41 @@ namespace MSAjaxClientWebForms.WS
              return AdapterEntityToComboView.adaptarLista<Institucion>(institucionesStub(), "IdInstitucion", "NombreInstitucion");
          }
 
+
+
+
+
+
+        [WebMethod]
+        public List<AsociacionConvenio> conveniosPorPais(int idPais, int idIntitucion)
+        {
+            return convenios(tipoAsiciacion.pais);
+        }
+
+
+        [WebMethod]
+        public List<AsociacionConvenio> conveniosPorOrganismo(int idOrg, int idInstitucion)
+        {
+            return convenios(tipoAsiciacion.organismo);
+        }
+
+        private List<AsociacionConvenio> convenios(tipoAsiciacion tipo)
+        {
+            List<AsociacionConvenio> lista = new List<AsociacionConvenio>();
+            if (tipo==tipoAsiciacion.pais)
+            {
+                lista.Add(new AsociacionConvenio { pais = "unPais", idConvenio = 1, nroExpediente = "A235" });
+                lista.Add(new AsociacionConvenio { pais = "otroPais", idConvenio = 2, nroExpediente = "A2t5" });
+                lista.Add(new AsociacionConvenio { pais = "otroMAsPais", idConvenio = 3, nroExpediente = "Aw35" });
+            }
+            if (tipo==tipoAsiciacion.organismo)
+            {
+                lista.Add(new AsociacionConvenio { organismo="unOrganismo", idConvenio = 1, nroExpediente = "AP235" });
+                lista.Add(new AsociacionConvenio { organismo = "otroOrganismo", idConvenio = 2, nroExpediente = "O235" });
+                lista.Add(new AsociacionConvenio { organismo = "nuevoOrganismo", idConvenio = 3, nroExpediente = "B235" });
+            }
+            return lista;
+        }
 
         [WebMethod]
         public Boolean validarNombre(string nombreConvenio)

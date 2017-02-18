@@ -95,6 +95,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdapterEntityToComboView.cs" />
+    <Compile Include="Models\AsociacionConvenio.cs" />
     <Compile Include="Models\ComboView.cs" />
     <Compile Include="Models\Institucion.cs" />
     <Compile Include="Models\Pais.cs" />
